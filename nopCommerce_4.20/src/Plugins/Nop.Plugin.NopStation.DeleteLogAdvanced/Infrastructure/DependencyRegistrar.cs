@@ -2,10 +2,10 @@
 using Nop.Core.Configuration;
 using Nop.Core.Infrastructure;
 using Nop.Core.Infrastructure.DependencyManagement;
-using Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Factories;
-using Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Services;
+using Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Factories;
+using Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Services;
 
-namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Infrastructure
+namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Infrastructure
 {
     /// <summary>
     /// Dependency registrar
@@ -20,8 +20,8 @@ namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Infrastructure
         /// <param name="config">Config</param>
         public virtual void Register(ContainerBuilder builder, ITypeFinder typeFinder, NopConfig config)
         {
-            builder.RegisterType<DeleteLogByDateService>().As<IDeleteLogByDateService>().InstancePerLifetimeScope();
-            builder.RegisterType<DeleteLogByDateModelFactory>().As<IDeleteLogByDateModelFactory>().InstancePerLifetimeScope();
+            builder.RegisterType<DeleteLogAdvancedService>().As<IDeleteLogAdvancedService>().InstancePerLifetimeScope();
+            builder.RegisterType<DeleteLogAdvancedModelFactory>().As<IDeleteLogAdvancedModelFactory>().InstancePerLifetimeScope();
         }
 
         /// <summary>

@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations;
 using Nop.Web.Framework.Models;
 using Nop.Web.Framework.Mvc.ModelBinding;
 
-namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Models
+namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Models
 {
-    public class DeleteLogByDateModel : BaseNopModel
+    public class DeleteLogAdvancedModel : BaseNopModel
     {
-        [NopResourceDisplayName("Admin.Intelisale.DeleteLogByDate.StartDateToDeleteLog")]
+        [NopResourceDisplayName("Admin.NopStation.DeleteLogAdvanced.StartDateToDeleteLog")]
         [UIHint("DateNullable")]
         public DateTime? StartDateToDeleteLog { get; set; }
 
-        [NopResourceDisplayName("Admin.Intelisale.DeleteLogByDate.EndDateToDeleteLog")]
+        [NopResourceDisplayName("Admin.NopStation.DeleteLogAdvanced.EndDateToDeleteLog")]
         [UIHint("DateNullable")]
         public DateTime? EndDateToDeleteLog { get; set; }
     }

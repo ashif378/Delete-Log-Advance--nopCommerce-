@@ -1,9 +1,9 @@
 ﻿using Nop.Core.Configuration;
 
-namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate
+namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced
 {
     public class DeleteLogAdvancedSettings : ISettings
     {
-        public bool DeleteLogByDateIsEnable { get; set; }
+        public bool DeleteLogAdvancedIsEnable { get; set; }
     }
 }

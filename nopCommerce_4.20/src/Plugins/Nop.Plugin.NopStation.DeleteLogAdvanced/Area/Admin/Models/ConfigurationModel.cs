@@ -1,11 +1,11 @@
 ﻿using Nop.Web.Framework.Models;
 using Nop.Web.Framework.Mvc.ModelBinding;
 
-namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Models
+namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Models
 {
     public class ConfigurationModel : BaseNopModel
     {
-        [NopResourceDisplayName("Plugins.Widgets.Intelisale.DeleteLogByDate.DeleteLogByDateIsEnable")]
-        public bool DeleteLogByDateIsEnable { get; set; }
+        [NopResourceDisplayName("Plugins.Widgets.NopStation.DeleteLogAdvanced.DeleteLogAdvancedIsEnable")]
+        public bool DeleteLogAdvancedIsEnable { get; set; }
     }
 }

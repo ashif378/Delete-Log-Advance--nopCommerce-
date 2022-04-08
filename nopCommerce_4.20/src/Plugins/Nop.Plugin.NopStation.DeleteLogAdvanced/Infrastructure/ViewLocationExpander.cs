@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Razor;
 
-namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Infrastructure
+namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Infrastructure
 {
     public class ViewLocationExpander : IViewLocationExpander
     {
@@ -17,17 +17,17 @@ namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Infrastructure
             if (context.AreaName == "Admin")
             {
                 viewLocations = new[] {
-                    $"/Plugins/Widgets.Intelisale.DeleteLogByDate/Areas/Admin/Views/{{0}}.cshtml",
-                    $"/Plugins/Widgets.Intelisale.DeleteLogByDate/Areas/Admin/Views/Shared/{{0}}.cshtml",
-                    $"/Plugins/Widgets.Intelisale.DeleteLogByDate/Areas/Admin/Views/{{1}}/{{0}}.cshtml",
+                    $"/Plugins/Widgets.NopStation.DeleteLogAdvanced/Areas/Admin/Views/{{0}}.cshtml",
+                    $"/Plugins/Widgets.NopStation.DeleteLogAdvanced/Areas/Admin/Views/Shared/{{0}}.cshtml",
+                    $"/Plugins/Widgets.NopStation.DeleteLogAdvanced/Areas/Admin/Views/{{1}}/{{0}}.cshtml",
                 }.Concat(viewLocations);
             }
             else
             {
                 viewLocations = new[] {
-                    $"/Plugins/Widgets.Intelisale.DeleteLogByDate/Areas/Admin/Views/{{0}}.cshtml",
-                    $"/Plugins/Widgets.Intelisale.DeleteLogByDate/Areas/Admin/Views/Shared/{{0}}.cshtml",
-                    $"/Plugins/Widgets.Intelisale.DeleteLogByDate/Areas/Admin/Views/{{1}}/{{0}}.cshtml",
+                    $"/Plugins/Widgets.NopStation.DeleteLogAdvanced/Areas/Admin/Views/{{0}}.cshtml",
+                    $"/Plugins/Widgets.NopStation.DeleteLogAdvanced/Areas/Admin/Views/Shared/{{0}}.cshtml",
+                    $"/Plugins/Widgets.NopStation.DeleteLogAdvanced/Areas/Admin/Views/{{1}}/{{0}}.cshtml",
                 }.Concat(viewLocations);
             }
 

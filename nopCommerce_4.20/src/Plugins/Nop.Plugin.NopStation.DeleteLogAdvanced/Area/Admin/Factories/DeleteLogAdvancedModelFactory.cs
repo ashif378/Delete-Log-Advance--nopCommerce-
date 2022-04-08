@@ -1,10 +1,10 @@
 ﻿using System;
-using Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Models;
+using Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Models;
 using Nop.Services.Helpers;
 
-namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Factories
+namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Factories
 {
-    public class DeleteLogByDateModelFactory : IDeleteLogByDateModelFactory
+    public class DeleteLogAdvancedModelFactory : IDeleteLogAdvancedModelFactory
     {
         #region fields
 
@@ -14,7 +14,7 @@ namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Factories
 
         #region ctor
 
-        public DeleteLogByDateModelFactory(IDateTimeHelper dateTimeHelper)
+        public DeleteLogAdvancedModelFactory(IDateTimeHelper dateTimeHelper)
         {
             _dateTimeHelper = dateTimeHelper;
         }
@@ -23,9 +23,9 @@ namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Factories
 
         #region methods
 
-        public DeleteLogByDateModel PrepareDeleteLogByDateModel()
+        public DeleteLogAdvancedModel PrepareDeleteLogAdvancedModel()
         {
-            var model = new DeleteLogByDateModel();
+            var model = new DeleteLogAdvancedModel();
             model.EndDateToDeleteLog = DateTime.Now.AddDays(-10);
 
             return model;

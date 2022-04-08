@@ -4,9 +4,9 @@ using Nop.Core.Data;
 using Nop.Core.Domain.Logging;
 using Nop.Services.Helpers;
 
-namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Services
+namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Services
 {
-    public class DeleteLogByDateService : IDeleteLogByDateService
+    public class DeleteLogAdvancedService : IDeleteLogAdvancedService
     {
         #region fields
 
@@ -17,7 +17,7 @@ namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Services
 
         #region ctor
 
-        public DeleteLogByDateService(IRepository<Log> logRepository,
+        public DeleteLogAdvancedService(IRepository<Log> logRepository,
             IDateTimeHelper dateTimeHelper)
         {
             _logRepository = logRepository;
@@ -28,7 +28,7 @@ namespace Nop.Plugin.Widgets.Intelisale.DeleteLogByDate.Area.Admin.Services
 
         #region methods
 
-        public void DeleteLogByDateRange(DateTime? startDate, DateTime? endDate)
+        public void DeleteLogAdvancedRange(DateTime? startDate, DateTime? endDate)
         {
             var startDateUtc = startDate.HasValue
                ? (DateTime?)_dateTimeHelper.ConvertToUtcTime(startDate.Value, _dateTimeHelper.CurrentTimeZone) : null;

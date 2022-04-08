@@ -1,4 +1,4 @@
-﻿@model DeleteLogByDateModel
+﻿@model DeleteLogAdvancedModel
 @using Nop.Core;
 @inject IWorkContext workContext
 
@@ -7,24 +7,24 @@
 
     if (supportRtl)
     {
-        Html.AppendCssFileParts("~/Plugins/Widgets.Intelisale.DeleteLogByDate/Area/Admin/Contents/css/styles.rtl.css");
+        Html.AppendCssFileParts("~/Plugins/Widgets.NopStation.DeleteLogAdvanced/Area/Admin/Contents/css/styles.rtl.css");
     }
     else
     {
-        Html.AppendCssFileParts("~/Plugins/Widgets.Intelisale.DeleteLogByDate/Area/Admin/Contents/css/styles.css");
+        Html.AppendCssFileParts("~/Plugins/Widgets.NopStation.DeleteLogAdvanced/Area/Admin/Contents/css/styles.css");
     }
 }
 
-<button type="button" id="delete-log-by-date" class="btn bg-red" data-toggle="modal" data-target="#delete-log-by-date-modal">
-    <i class="fa fa-trash-o"></i> @T("Admin.Intelisale.DeleteLogByDate.DeleteLogByDate")
+<button type="button" id="delete-log-advanced" class="btn bg-red" data-toggle="modal" data-target="#delete-log-advanced-modal">
+    <i class="fa fa-trash-o"></i> @T("Admin.NopStation.DeleteLogAdvanced.DeleteLogAdvanced")
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="delete-log-by-date-modal" tabindex="-1" role="dialog" aria-labelledby="delete-log-by-date-modalTitle" aria-hidden="true">
+<div class="modal fade" id="delete-log-advanced-modal" tabindex="-1" role="dialog" aria-labelledby="delete-log-advanced-modalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content delete-log-by-date">
+        <div class="modal-content delete-log-advanced">
             <div class="modal-header">
-                <h5 class="modal-title" id="delete-log-by-date-modalTitle">@T("Admin.Intelisale.DeleteLogByDate.ModelTitle")</h5>
+                <h5 class="modal-title" id="delete-log-advanced-modalTitle">@T("Admin.NopStation.DeleteLogAdvanced.ModelTitle")</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -81,18 +81,18 @@
             $.ajax({
                 cache: false,
                 type: "POST",
-                url: "@(Url.Action("DeleteLog", "DeleteLogByDate"))",
+                url: "@(Url.Action("DeleteLog", "DeleteLogAdvanced"))",
                 data: postData,
                 traditional: true,
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert('@T("DeleteLogByDate.DeleteError")')
+                    alert('@T("DeleteLogAdvanced.DeleteError")')
                 },
                 complete: function (jqXHR, textStatus) {
                     updateTable('#log-grid');
                 }
             });
 
-            $("#delete-log-by-date-modal").modal('toggle');
+            $("#delete-log-advanced-modal").modal('toggle');
         });
     });
 </script>
