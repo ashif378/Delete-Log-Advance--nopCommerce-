@@ -56,9 +56,9 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced
         /// </summary>
         public override void Install()
         {
-            _localizationService.AddOrUpdatePluginLocaleResource("Admin.NopStation.DeleteLogAdvanced.DeleteLogAdvanced", "Delete Log By Date");
-            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Widgets.NopStation.DeleteLogAdvanced.DeleteLogAdvancedIsEnable", "Delete log by date is enabled");
-            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Widgets.NopStation.DeleteLogAdvanced.DeleteLogAdvancedIsEnable.Hint", "Enable or disable delete log by date range.");
+            _localizationService.AddOrUpdatePluginLocaleResource("Admin.NopStation.DeleteLogAdvanced.DeleteLogAdvanced", "Advanced Delete");
+            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Widgets.NopStation.DeleteLogAdvanced.DeleteLogAdvancedIsEnable", "Delete log advanced enabled");
+            _localizationService.AddOrUpdatePluginLocaleResource("Plugins.Widgets.NopStation.DeleteLogAdvanced.DeleteLogAdvancedIsEnable.Hint", "Enable or disable delete log advanced.");
             _localizationService.AddOrUpdatePluginLocaleResource("Admin.NopStation.DeleteLogAdvanced.StartDateToDeleteLog", "Start Date");
             _localizationService.AddOrUpdatePluginLocaleResource("Admin.NopStation.DeleteLogAdvanced.StartDateToDeleteLog.Hint", "Start Date. Keep this field empty to delete all to the end date.");
             _localizationService.AddOrUpdatePluginLocaleResource("Admin.NopStation.DeleteLogAdvanced.EndDateToDeleteLog", "End Date");

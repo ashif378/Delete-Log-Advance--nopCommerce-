@@ -20,7 +20,7 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Controllers
         private readonly IStoreContext _storeContext;
         private readonly ILocalizationService _localizationService;
         private readonly INotificationService _notificationService;
-        private readonly IDeleteLogAdvancedService _DeleteLogAdvancedService;
+        private readonly IDeleteLogAdvancedService _deleteLogAdvancedService;
 
         #endregion fields
 
@@ -31,14 +31,14 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Controllers
             IStoreContext storeContext,
             ILocalizationService localizationService,
             INotificationService notificationService,
-            IDeleteLogAdvancedService DeleteLogAdvancedService)
+            IDeleteLogAdvancedService deleteLogAdvancedService)
         {
             _permissionService = permissionService;
             _settingService = settingService;
             _storeContext = storeContext;
             _localizationService = localizationService;
             _notificationService = notificationService;
-            _DeleteLogAdvancedService = DeleteLogAdvancedService;
+            _deleteLogAdvancedService = deleteLogAdvancedService;
         }
 
         #endregion ctor
@@ -51,10 +51,10 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Controllers
                 return AccessDeniedView();
 
             var storeScope = _storeContext.ActiveStoreScopeConfiguration;
-            var DeleteLogAdvancedSettings = _settingService.LoadSetting<DeleteLogAdvancedSettings>(storeScope);
+            var deleteLogAdvancedSettings = _settingService.LoadSetting<DeleteLogAdvancedSettings>(storeScope);
             var model = new ConfigurationModel
             {
-                DeleteLogAdvancedIsEnable = DeleteLogAdvancedSettings.DeleteLogAdvancedIsEnable
+                DeleteLogAdvancedIsEnable = deleteLogAdvancedSettings.DeleteLogAdvancedIsEnable
             };
 
             return View("~/Plugins/Widgets.NopStation.DeleteLogAdvanced/Area/Admin/Views/DeleteLogAdvanced/Configure.cshtml", model);
@@ -68,11 +68,11 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Controllers
                 return AccessDeniedView();
 
             var storeScope = _storeContext.ActiveStoreScopeConfiguration;
-            var DeleteLogAdvancedSettings = _settingService.LoadSetting<DeleteLogAdvancedSettings>(storeScope);
+            var deleteLogAdvancedSettings = _settingService.LoadSetting<DeleteLogAdvancedSettings>(storeScope);
 
-            DeleteLogAdvancedSettings.DeleteLogAdvancedIsEnable = model.DeleteLogAdvancedIsEnable;
+            deleteLogAdvancedSettings.DeleteLogAdvancedIsEnable = model.DeleteLogAdvancedIsEnable;
 
-            _settingService.SaveSettingOverridablePerStore(DeleteLogAdvancedSettings, x => x.DeleteLogAdvancedIsEnable, model.DeleteLogAdvancedIsEnable, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(deleteLogAdvancedSettings, x => x.DeleteLogAdvancedIsEnable, model.DeleteLogAdvancedIsEnable, storeScope, false);
 
             //now clear settings cache
             _settingService.ClearCache();
@@ -86,7 +86,7 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Area.Admin.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult DeleteLog(DateTime? startDateToDeleteLog, DateTime? endDateToDeleteLog)
         {
-            _DeleteLogAdvancedService.DeleteLogAdvancedRange(startDateToDeleteLog, endDateToDeleteLog);
+            _deleteLogAdvancedService.DeleteLogAdvancedRange(startDateToDeleteLog, endDateToDeleteLog);
 
             return Json(new { Result = true });
         }

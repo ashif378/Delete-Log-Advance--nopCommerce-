@@ -19,7 +19,7 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Components
         private readonly IStoreContext _storeContext;
         private readonly IWorkContext _workContext;
         private readonly ISettingService _settingService;
-        private readonly IDeleteLogAdvancedModelFactory _DeleteLogAdvancedModelFactory;
+        private readonly IDeleteLogAdvancedModelFactory _deleteLogAdvancedModelFactory;
 
         #endregion fields
 
@@ -30,14 +30,14 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Components
             IStoreContext storeContext,
             IWorkContext workContext,
             ISettingService settingService,
-            IDeleteLogAdvancedModelFactory DeleteLogAdvancedModelFactory)
+            IDeleteLogAdvancedModelFactory deleteLogAdvancedModelFactory)
         {
             _widgetPluginManager = widgetPluginManager;
             _pluginService = pluginService;
             _storeContext = storeContext;
             _workContext = workContext;
             _settingService = settingService;
-            _DeleteLogAdvancedModelFactory = DeleteLogAdvancedModelFactory;
+            _deleteLogAdvancedModelFactory = deleteLogAdvancedModelFactory;
         }
 
         #endregion ctor
@@ -50,17 +50,17 @@ namespace Nop.Plugin.Widgets.NopStation.DeleteLogAdvanced.Components
                 return Content("");
 
             var storeScope = _storeContext.ActiveStoreScopeConfiguration;
-            var DeleteLogAdvancedSettings = _settingService.LoadSetting<DeleteLogAdvancedSettings>(storeScope);
+            var deleteLogAdvancedSettings = _settingService.LoadSetting<DeleteLogAdvancedSettings>(storeScope);
 
             var pluginDescriptor = _pluginService.GetPluginDescriptorBySystemName<IWidgetPlugin>(PLUGIN_SYSTEM_NAME, LoadPluginsMode.InstalledOnly, _workContext.CurrentCustomer, _storeContext.CurrentStore.Id);
             var isPluginActive = _widgetPluginManager.IsPluginActive(pluginDescriptor.Instance<IWidgetPlugin>());
 
-            if (!isPluginActive || !DeleteLogAdvancedSettings.DeleteLogAdvancedIsEnable)
+            if (!isPluginActive || !deleteLogAdvancedSettings.DeleteLogAdvancedIsEnable)
                 return Content("");
 
-            var model = _DeleteLogAdvancedModelFactory.PrepareDeleteLogAdvancedModel();
+            var model = _deleteLogAdvancedModelFactory.PrepareDeleteLogAdvancedModel();
 
-            return View("~/Plugins/Widgets.NopStation.DeleteLogAdvanced/Area/Admin/Views/DeleteLogAdvanced/DeleteByDateButton.cshtml", model);
+            return View("~/Plugins/Widgets.NopStation.DeleteLogAdvanced/Area/Admin/Views/DeleteLogAdvanced/DeleteLogAdvancedButton.cshtml", model);
         }
 
         #endregion methods
