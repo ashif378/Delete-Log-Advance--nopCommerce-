@@ -1,0 +1,7 @@
+﻿.delete-log-by-date .modal-footer .btn + .btn {
+  margin-bottom: 5px !important;
+}
+
+.delete-log-by-date .modal-header .close {
+  margin-top: -21px !important;
+}

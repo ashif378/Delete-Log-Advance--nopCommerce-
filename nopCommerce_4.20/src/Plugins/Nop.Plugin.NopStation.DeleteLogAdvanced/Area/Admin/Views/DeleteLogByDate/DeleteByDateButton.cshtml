@@ -1,0 +1,98 @@
+﻿@model DeleteLogByDateModel
+@using Nop.Core;
+@inject IWorkContext workContext
+
+@{
+    var supportRtl = workContext.WorkingLanguage.Rtl;
+
+    if (supportRtl)
+    {
+        Html.AppendCssFileParts("~/Plugins/Widgets.Intelisale.DeleteLogByDate/Area/Admin/Contents/css/styles.rtl.css");
+    }
+    else
+    {
+        Html.AppendCssFileParts("~/Plugins/Widgets.Intelisale.DeleteLogByDate/Area/Admin/Contents/css/styles.css");
+    }
+}
+
+<button type="button" id="delete-log-by-date" class="btn bg-red" data-toggle="modal" data-target="#delete-log-by-date-modal">
+    <i class="fa fa-trash-o"></i> @T("Admin.Intelisale.DeleteLogByDate.DeleteLogByDate")
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-log-by-date-modal" tabindex="-1" role="dialog" aria-labelledby="delete-log-by-date-modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content delete-log-by-date">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-log-by-date-modalTitle">@T("Admin.Intelisale.DeleteLogByDate.ModelTitle")</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="panel-group">
+                        <div class="panel panel-default panel-search">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <nop-label asp-for="StartDateToDeleteLog" />
+                                        </div>
+                                        <div class="col-md-8">
+                                            <nop-editor asp-for="StartDateToDeleteLog" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <nop-label asp-for="EndDateToDeleteLog" />
+                                        </div>
+                                        <div class="col-md-8">
+                                            <nop-editor asp-for="EndDateToDeleteLog" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    @T("Admin.Common.Cancel")
+                                </button>
+                                <button type="button" id="select-date-range-delete-btn" class="btn bg-red">
+                                    <i class="fa fa-trash-o"></i> @T("Admin.Common.Delete")
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#select-date-range-delete-btn").click(function () {
+            var postData = {
+                startDateToDeleteLog: $("#StartDateToDeleteLog").val(),
+                endDateToDeleteLog: $("#EndDateToDeleteLog").val()
+            };
+            addAntiForgeryToken(postData);
+
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "@(Url.Action("DeleteLog", "DeleteLogByDate"))",
+                data: postData,
+                traditional: true,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('@T("DeleteLogByDate.DeleteError")')
+                },
+                complete: function (jqXHR, textStatus) {
+                    updateTable('#log-grid');
+                }
+            });
+
+            $("#delete-log-by-date-modal").modal('toggle');
+        });
+    });
+</script>

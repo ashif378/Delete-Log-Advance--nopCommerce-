@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "Delete Log Advanced",
+  "SystemName": "Widgets.NopStations.DeleteLogAdvanced",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.10", "4.20" ],
+  "Author": "Ashif Ahmed Khan, NopStation",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.NopStations.DeleteLogAdvanced.dll",
+  "Description": "This plugin deletes log by date and log level."
+}

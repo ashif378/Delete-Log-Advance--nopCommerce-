@@ -1,0 +1,28 @@
+﻿@model ConfigurationModel
+
+@{
+    Layout = "_ConfigurePlugin";
+}
+
+<form asp-controller="DeleteLogByDate" asp-action="Configure" method="post">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <nop-label asp-for="@Model.DeleteLogByDateIsEnable" />
+                    </div>
+                    <div class="col-md-8">
+                        <nop-editor asp-for="@Model.DeleteLogByDateIsEnable" />
+                        <span asp-validation-for="@Model.DeleteLogByDateIsEnable"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4">
+                        <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
